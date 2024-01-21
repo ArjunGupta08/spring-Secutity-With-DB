@@ -15,9 +15,17 @@
 		    	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 		    	runtimeOnly 'com.mysql:mysql-connector-j'
 
-- Packages Arcitecture
-  - config
-  - controller
-  - services
-  - repository
+- Packages Architecture
   - entities
+    - Emplyee.class
+  - repository
+    - EmpRepo.class exrtends JpaRepository
+  - config
+    - CustomUserDetails.class implements UserDetails
+    - CustomUserDetailsService.class implements UserDetailsService
+    - SecurityConfig.class @Configuration @EnableWebSecurity
+      - Create BcryptPasswordEncoder Bean
+      - Create DaoAuthenticationProvider Bean -> UserDetailsService obj, password encoder
+  - controller
+    - HomeController.class
+  - services
