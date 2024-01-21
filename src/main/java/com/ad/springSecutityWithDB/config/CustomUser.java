@@ -13,6 +13,10 @@ public class CustomUser implements UserDetails {
 
     private Employee emp;
 
+    public CustomUser(Employee emp) {
+        this.emp = emp;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(emp.getRole());
